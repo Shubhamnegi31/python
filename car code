@@ -1,0 +1,17 @@
+n =input("Enter the command you want to perform: ")
+
+if n == "start":
+    print("Please be ready, your car is going to start.")
+elif n == "stop":
+    print("Your car is going to stop.")
+elif n == "help":
+    response = input("Do you want me to call someone for help? (yes/no) ")
+    if response == "yes":
+        print("Someone is informed to help you.")
+    elif response == "no":
+        print("Okay, I will not call anyone.")
+    else:
+        print("Invalid response.")
+else:
+    print("You have entered a wrong command.")
+
