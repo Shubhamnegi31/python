@@ -1,0 +1,8 @@
+# to print number is odd or even
+list= []
+for i in  range(10) :
+    list.append(i)
+    if i % 2 == 0 :
+        print(i,"= even")
+    else :
+        print(i,'= odd')
