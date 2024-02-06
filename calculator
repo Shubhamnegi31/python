@@ -1,0 +1,23 @@
+def calculator(num1, num2):
+    addition = num1 + num2
+    subtraction = num1 - num2
+    multiplication = num1 * num2
+    division = int(num1/num2)
+    
+    return addition, subtraction, multiplication,division
+
+number1 = int(input("enter first number\n"))
+number2 = int(input("enter second number\n"))
+operation = input("enter operation(+,-,*,/)\n")
+
+addition, subtraction, multiplication , division = calculator(number1, number2)
+if operation == '+' :
+    print(f"Addition: {addition}")
+elif operation == '-' :
+    print(f"Subtraction: {subtraction}")
+elif operation == '*':
+    print(f"Multiplication: {multiplication}")
+elif operation == '/':
+    print(f"division:{division}")
+else:
+    print("wrong operation")
