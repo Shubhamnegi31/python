@@ -1,0 +1,27 @@
+#write a python program to continue the sentence that takes the sentence as input and return the input and return dictionary with the count of word
+#calculate the frequency of word
+def word_and_letter_count(sentence):
+    word_count = {}
+    letter_count = {}
+
+    words = sentence.split()
+
+    for word in words:
+        word_count[word] = word_count.get(word, 0) + 1
+
+        for letter in word:
+            letter_count[letter] = letter_count.get(letter, 0) + 1
+
+    return word_count, letter_count
+
+user_sentence = input("Enter a sentence:\n")
+
+word_counts, letter_counts = word_and_letter_count(user_sentence)
+
+print("Sentence:", user_sentence)
+print("Word Counts:", word_counts)
+print("Letter Counts:", letter_counts)
+
+
+
+ 
