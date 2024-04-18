@@ -1,0 +1,77 @@
+class Movie:
+    """
+    A versatile Movie class with properties, methods, and inheritance for a beginner-friendly introduction to OOP in Bollywood movies.
+    """
+
+    def __init__(self, title, director, lead_actor, lead_actress, year_released, genre="Bollywood", rating=None):
+        """
+        Initializes a Movie object with properties specific to Bollywood movies.
+
+        Args:
+            title (str): The title of the movie.
+            director (str): The director of the movie.
+            lead_actor (str): The lead actor in the movie.
+            lead_actress (str): The lead actress in the movie.
+            year_released (int): The year the movie was released.
+            genre (str, optional): The genre of the movie (defaults to "Bollywood"). Defaults to "Bollywood".
+            rating (float, optional): The user's rating (0.0 to 5.0). Defaults to None.
+        """
+
+        self.title = title
+        self.director = director
+        self.lead_actor = lead_actor
+        self.lead_actress = lead_actress
+        self.year_released = year_released
+        self.genre = genre
+        self.rating = rating if rating is not None and 0.0 <= rating <= 5.0 else None  # Input validation
+
+    def get_movie_info(self):
+        """
+        Returns a formatted string containing the movie's information.
+        """
+
+        info = f"Title: {self.title}\nDirector: {self.director}\nLead Cast: {self.lead_actor} & {self.lead_actress}\nYear Released: {self.year_released}\nGenre: {self.genre}"
+        if self.rating is not None:
+            info += f"\nRating: {self.rating:.1f}"  # Format rating with one decimal place
+        return info
+
+    def set_rating(self, new_rating):
+        """
+        Updates the movie's rating if it's within the valid range (0.0 to 5.0).
+
+        Args:
+            new_rating (float): The new rating to be assigned.
+        """
+
+        if 0.0 <= new_rating <= 5.0:
+            self.rating = new_rating
+            print(f"Rating for '{self.title}' successfully updated to {new_rating:.1f}.")
+        else:
+            print(f"Invalid rating. Please enter a value between 0.0 and 5.0.")
+
+# Create some Movie objects with Bollywood movie properties (add more!)
+movie1 = Movie("Dilwale Dulhania Le Jayenge", "Yash Chopra", "Shah Rukh Khan", "Kajol", 1995, "Romance")
+movie2 = Movie("Lagaan", "Ashutosh Gowariker", "Aamir Khan", "Gracy Singh", 2001, "Historical Drama")
+movie3 = Movie("Dangal", "Nitesh Tiwari", "Aamir Khan", "Fatima Sana Shaikh", 2016, "Biographical Drama")
+movie4 = Movie("PK", "Rajkumar Hirani", "Aamir Khan", "Anushka Sharma", 2014, "Comedy Drama")
+movie5 = Movie("3 Idiots", "Rajkumar Hirani", "Aamir Khan", "Kareena Kapoor Khan", 2009, "Comedy Drama")  # Corrected year for movie5
+
+# Print movie information using the get_movie_info() method
+print("\n**Bollywood Movie Information:**")
+print(movie1.get_movie_info())
+print("\n" + movie2.get_movie_info() + "\n")
+print(movie3.get_movie_info())
+print("\n" + movie4.get_movie_info() + "\n")
+print(movie5.get_movie_info())
+
+# Allow user to update movie ratings using the set_rating() method
+user_input = input("\nWould you like to update a movie's rating? (y/n): ")
+if user_input.lower() == 'y':
+    title_to_update = input("Enter the title of the movie you want to update: ")
+    for movie in [movie1, movie2, movie3, movie4, movie5]:  # Check all movies
+        if movie.title == title_to_update:
+            new_rating = float(input(f"Enter the new rating for '{movie.title}' (0.0 to 5.0): "))  # Added closing parenthesis
+            movie.set_rating(new_rating)
+            break  # Exit loop after finding the movie
+    else:
+        print("Movie not found.")
